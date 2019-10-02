@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <int name="saved_times_pressed_default_key">0</int>
-    <int name="saved_button_press_count_key">0</int>
+    <integer name="saved_times_pressed_default_key">0</integer>
+    <integer name="newInt">0</integer>
 </resources>

@@ -3,6 +3,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="saved_button_pressed_count_key">Times pressed</string>
-    <int name="saved_times_pressed_default_key">0</int>
+    <string name="saved_button_press_count_key">0</string>
+    <string name="newString">0</string>
 </resources>
