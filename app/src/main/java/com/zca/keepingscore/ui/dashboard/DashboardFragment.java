@@ -49,6 +49,7 @@ public class DashboardFragment extends Fragment {
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
+        final TextView highscoreView = root.findViewById(R.id.high_score);
         dashboardViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -56,7 +57,10 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        int defaultValue = getResources().getInteger(R.integer.newInt);
+        int highscore = sharedPref.getInt(getString(R.string.newString), defaultValue);
+        highscoreView.setText("High score: " + Integer.toString(highscore));
 
         mTextViewCountDown = root.findViewById(R.id.text_view_countdown);
 
@@ -115,6 +119,8 @@ public class DashboardFragment extends Fragment {
                 if(score > high_score){
                     editor.putInt(getString(R.string.saved_button_press_count_key), score);
                     editor.commit();
+                    TextView highscoreView = getActivity().findViewById(R.id.high_score);
+                    highscoreView.setText("High score: " + Integer.toString(score));
                 }
                 score = 0;
             }
