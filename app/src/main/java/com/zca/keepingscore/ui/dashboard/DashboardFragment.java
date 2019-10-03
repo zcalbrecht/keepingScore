@@ -23,7 +23,7 @@ import java.util.Locale;
 
 public class DashboardFragment extends Fragment {
 
-    private static final long START_TIME_IN_MILLIS = 30000;
+    private static final long START_TIME_IN_MILLIS = 5000;
     private TextView mTextViewCountDown;
     private ImageButton mButtonStartPause;
     private Button mButtonReset;
@@ -135,6 +135,8 @@ public class DashboardFragment extends Fragment {
         updateCountDownText();
         mButtonReset.setVisibility(View.INVISIBLE);
         mButtonStartPause.setVisibility(View.VISIBLE);
+        TextView highscoreView = getActivity().findViewById(R.id.text_dashboard);
+        highscoreView.setText("Score: 0");
     }
 
     private void updateCountDownText() {
