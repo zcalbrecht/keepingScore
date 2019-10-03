@@ -34,12 +34,32 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-        int defaultValue1 = getResources().getInteger(R.integer.newInt);
-        int timesPressed1 = sharedPref.getInt(getString(R.string.newString), defaultValue1);
+        Button button = root.findViewById(R.id.mash_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        // be amazing, do something
-        textView.setText("High score: " + Integer.toString(timesPressed1)+ " button presses in 5 seconds");
+                // THIS line just initializes the sharedprefs
+                // local to our current Activity/Fragment/Context
+                SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+
+                // set a default value for the number of times pressed to 0
+                int defaultValue = getResources().getInteger(R.integer.saved_times_pressed_default_key);
+
+                // get the saved value from sharedPref.  If we have no value
+                // (never saved this key before) set it to our default of 0
+                int timesPressed = sharedPref.getInt(getString(R.string.part_1), defaultValue);
+
+                int newTimesPressed = timesPressed + 1;
+
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putInt(getString(R.string.part_1), newTimesPressed);
+                editor.commit();
+
+                // be amazing, do something
+                textView.setText("Button has been pressed " + Integer.toString(newTimesPressed)+ " times!");
+            }
+        });
 
         return root;
     }

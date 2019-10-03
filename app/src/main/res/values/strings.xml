@@ -5,4 +5,5 @@
     <string name="title_notifications">Notifications</string>
     <string name="saved_button_press_count_key">0</string>
     <string name="newString">0</string>
+    <string name="part_1">com.zca.keepingscore.COUNT_KEY_1</string>
 </resources>
