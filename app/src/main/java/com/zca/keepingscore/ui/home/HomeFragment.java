@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
         int timesPressed1 = sharedPref.getInt(getString(R.string.newString), defaultValue1);
 
         // be amazing, do something
-        textView.setText("High score: " + Integer.toString(timesPressed1)+ " button presses in 30 seconds");
+        textView.setText("High score: " + Integer.toString(timesPressed1)+ " button presses in 5 seconds");
 
         return root;
     }
